@@ -30,7 +30,6 @@ app.get('/reset-table', function(req,res,next){
 
 app.get('/',function(req, res, next){
     var context = {};
-    mysql.pool.query("SELECT DATE_FORMAT(date, '%m/%d/%Y')from workouts")
     mysql.pool.query('SELECT * FROM workouts', function (err, rows, fields){
         if (err){
             next(err);
@@ -49,15 +48,12 @@ app.get('/insert', urlencodedParser, function(req, res, next){
         lbs = false;
     }
 
-
-
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, lbs], function(err, results){
         if(err){
             next(err);
             return;
         };
     });
-    mysql.pool.query("SELECT DATE_FORMAT(date, '%m/%d/%Y')from workouts")
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
@@ -81,6 +77,9 @@ app.get('/edit', urlencodedParser, function(req, res, next){
                 return;
             };
         });
+    }
+    elif (req.query[key]=="Update"){
+        console.log('need')
     }
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
