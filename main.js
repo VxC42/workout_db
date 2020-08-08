@@ -60,7 +60,7 @@ app.post('/insert', function(req, res, next){
            next(err);
            return;
         }
-    context.results = result.insertId;
+    context.results = JSON.stringify(rows);
     res.render('DBchart',context);
     });
 })
