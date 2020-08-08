@@ -28,6 +28,8 @@ app.get('/reset-table', function(req,res,next){
     });
 });
 
+mysql.pool.query('INSERT INTO workouts(name, reps, weight, date, lbs) VALUES ("a", "b", "c", "d", "e")')
+
 app.get('/',function(req, res, next){
     var context = {};
     mysql.pool.query('SELECT * FROM workouts', function (err, rows, fields){
