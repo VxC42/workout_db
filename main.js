@@ -39,7 +39,11 @@ app.get('/',function(req, res, next){
     });
 });
 
-app.post('/insert', function(req, res, next){
+app.post('/insert', function(req,res,next){
+    console.log(req.query, req.params.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
+})
+
+/*app.post('/insert', function(req, res, next){
     var context = {};
     if(req.query['Add Workout']){
         mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
@@ -48,7 +52,7 @@ app.post('/insert', function(req, res, next){
                 return;
             };
         });
-    };
+    };*/
     /*if(req.query['Delete']){
         mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.id], function(err, result){
             if(err){
@@ -56,7 +60,7 @@ app.post('/insert', function(req, res, next){
                 return;
             }
         });
-    }*/
+    }*//*
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
@@ -66,7 +70,7 @@ app.post('/insert', function(req, res, next){
     res.render('DBchart',context);
     });
 })
-
+*/
 
 app.use(function(req,res){
   res.status(404);
