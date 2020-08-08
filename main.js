@@ -40,9 +40,8 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/', function(req, res, next){
-    console.log('hi')
     var context={};
-    if(req.body['Add Workout']){
+    if(req.body['insert']){
         mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.body.name, req.body.reps, req.body.weight, req.body.date. req.body.lbs], function(err, result){
             if(err){
                 next(err);
