@@ -57,7 +57,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
             return;
         };
     });
-    mysql.pool.query('SELECT * FROM workouts, SELECT * DATE_FORMAT(date, "%m-%d-%Y") date', function(err, rows, fields){
+    mysql.pool.query('SELECT name, rep, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts, ', function(err, rows, fields){
         if(err){
            next(err);
            return;
