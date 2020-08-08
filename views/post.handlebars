@@ -1,0 +1,27 @@
+<h1>Post Request Received</h1>
+<h2>URL Parameters</h2>
+<table>
+    <tr><th>name</th><th>value</th></tr>
+    {{#each url.dataList}}
+    <tr>
+
+        <td>{{this.name}}</td>
+        <td>{{this.value}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+<h2>Property names</h2>
+<table>
+    <tr><td>Name</td><td>Reps</td><td>Weight</td><td>Date</td><td>Units</td></tr>
+    {{#each body.bodyList}}
+    <tr>
+
+        <td>{{this.name}}</td>
+        <td>{{this.reps}}</td>
+        <td>{{this.weight}}</td>
+        <td>{{this.date}}</td>
+        <td>{{this.units}}</td>
+    </tr>
+    {{/each}}
+</table>

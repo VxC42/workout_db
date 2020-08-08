@@ -1,0 +1,20 @@
+{
+  "name": "week5 - GET/POST checker",
+  "version": "1.0.0",
+  "description": "Application that receives both Get and Post requests",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chinv@oregonstate.edu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.11.3",
+    "mysql": "^2.18.1",
+    "package.json": "^2.0.1",
+    "save": "^2.4.0"
+  }
+}

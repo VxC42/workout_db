@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel='stylesheet' type='text/css' href='css/styles.css'/>
+        <title>Assignment 6</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1> Assignment 6 - Database interactions and UI</h2>
+            <div id="form_container">
+                <form action="/insert" method="post">
+                    <label for "name"> Name of Exercise:</label>
+                    <input type="text" name="name" class="input_field" required>
+                    <label for "rep"> Number of Reps:</label>
+                    <input type="text" name="reps" class="input_field" required>
+                    <label for "weight"> Amount of Weight:</label>
+                    <input type="text" name="weight" class="input_field" required>
+                    <label for "date"> Date (MM-DD-YYYY):</label>
+                    <input type="text" name="date" class="input_field" required>
+                    <label for "lbs"> Units used:</label>
+                    <select name="lbs" class="dropdown" required>
+                        <option value="lbs">lbs</option>
+                        <option value="kgs">kgs</option>
+                        </select>
+                    <input type="submit" id="submit_btn" name="insert" value="Add Workout">
+                </form>
+
+            </div>
+
+            {{{body}}}
+
+        </div>
+    </body>
+</html>
