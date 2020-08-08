@@ -47,15 +47,17 @@ app.get('/insert', urlencodedParser, function(req, res, next){
     if(req.query.lbs == "kgs"){
         lbs = false;
     }
+
     date_str = req.query.date
     date = date_str.slice(6,11)+"-"+date_str.slice(0,2)+"-"+date_str.slice(3,5)
+
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, date, lbs], function(err, results){
         if(err){
             next(err);
             return;
         };
     });
-    mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    mysql.pool.query('SELECT * FROM workouts, SELECT DATE_FORMAT("%Y-%m-%d, %m-%d-%Y")', function(err, rows, fields){
         if(err){
            next(err);
            return;
