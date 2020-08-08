@@ -28,7 +28,7 @@ app.get('/reset-table', function(req,res,next){
     });
 });
 
-mysql.pool.query('INSERT INTO workouts(name, reps, weight, date, lbs) VALUES ("a", "b", "c", "d", "e")')
+mysql.pool.query('INSERT INTO workouts(name, reps, weight, date, lbs) VALUES (["a", "b", "c", "d", "e"])')
 
 app.get('/',function(req, res, next){
     var context = {};
