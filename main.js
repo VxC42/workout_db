@@ -44,7 +44,6 @@ app.get('/',function(req, res, next){
 });
 
 app.get('/insert', urlencodedParser, function(req, res, next){
-    console.log(req.query.date )
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, results){
         if(err){
             next(err);
