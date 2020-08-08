@@ -114,7 +114,7 @@ app.get('/update', function(req, res, next){
         if(result.length==1){
             var curVals = result[0];
             console.log(req.query)
-            mysql.pool.query('UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=?', [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.query.lbs || curVals.lbs], function(err, result){
+            mysql.pool.query('UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERED id=[key[0]]', [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.query.lbs || curVals.lbs], function(err, result){
                 if(err){
                     next(err);
                     return;
