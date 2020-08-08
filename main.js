@@ -62,7 +62,7 @@ app.post('/', function(req, res, next){
            next(err);
            return;
         }
-    context.results = rows;
+    context.results = result.insertId;
     res.render('DBchart',context);
     });
 })
