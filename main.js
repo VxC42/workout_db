@@ -69,7 +69,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 
 app.get('/edit', urlencodedParser, function(req, res, next){
     var context={};
-    /*var q = req.query
+    var q = req.query
     var key = [];
     for (var k in q) key.push(k);
     if (req.query[key]=="Delete"){
@@ -79,7 +79,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
                 return;
             };
         });
-    }*
+    }
     else if (req.query[key]=="Update"){
         console.log('need')
     }
