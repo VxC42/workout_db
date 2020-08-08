@@ -79,6 +79,14 @@ app.get('/edit', urlencodedParser, function(req, res, next){
                 return;
             };
         });
+        mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
+            if(err){
+               next(err);
+               return;
+            }
+        context.results = rows;
+        res.render('DBchart',context);
+        });
     }
     else if (req.query[key]=="Update"){
         mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts WHERE id=?', [key[0]], function(err, result){
@@ -90,14 +98,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
             res.render('update', context)
         })
     }
-    mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
-        if(err){
-           next(err);
-           return;
-        }
-    context.results = rows;
-    res.render('DBchart',context);
-    });
+
 });
 /*
 app.get('/update', function(req, res, next){
