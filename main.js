@@ -30,7 +30,7 @@ app.get('/reset-table', function(req,res,next){
 
 app.get('/',function(req, res, next){
     var context = {};
-    mysql.pool.query('SELECT name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function (err, rows, fields){
+    mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function (err, rows, fields){
         if (err){
             next(err);
             return;
@@ -57,7 +57,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
             return;
         };
     });
-    mysql.pool.query('SELECT name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
+    mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
            return;
@@ -86,7 +86,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     else if (req.query[key]=="Update"){
         console.log('need')
     }
-    mysql.pool.query('SELECT name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
+    mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
            return;
