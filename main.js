@@ -30,7 +30,7 @@ app.get('/reset-table', function(req,res,next){
 
 app.get('/',function(req, res, next){
     var context = {};
-    mysql.pool.query('SELECT *, DATE_FORMAT(date, "%m-%d-%y") AS date FROM workouts;
+    mysql.pool.query('SELECT *, DATE_FORMAT(date, "%m-%d-%y") FROM workouts;
  ', function (err, rows, fields){
         if (err){
             next(err);
