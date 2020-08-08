@@ -53,7 +53,7 @@ app.get('/insert', function(req, res, next){
            return;
         }
     context.results = JSON.stringify(rows);
-    res.send('DBchart',context);
+    res.render('DBchart',context);
     });
 })
 
