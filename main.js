@@ -28,7 +28,7 @@ function getForm(){
                     next(err);
                     return;
                 };
-            });
+            };
             mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
                 if(err){
                    next(err);
@@ -37,8 +37,8 @@ function getForm(){
             context.results = JSON.stringify(rows);
             res.send('DBchart',context);
             });
-    })
-})
+        });
+    });
 
 app.get('/reset-table', function(req,res,next){
     var context = {};
