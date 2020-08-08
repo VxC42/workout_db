@@ -66,14 +66,15 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
-    console.log(key)
     console.log(req.query[key])
-    mysql.pool.query('DELETE FROM workouts WHERE id = ?', [key[0]], function(err, result){
-        if(err){
-            next(err);
-            return;
-        };
-    });
+    if (req.query[key]=="Delete"){
+        mysql.pool.query('DELETE FROM workouts WHERE id = ?', [key[0]], function(err, result){
+            if(err){
+                next(err);
+                return;
+            };
+        });
+    }
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
