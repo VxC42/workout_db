@@ -83,7 +83,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
         });
     }
     else if (req.query[key]=="Update"){
-        console.log(key[0])
+        console.log(req.query[key])
         mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
             if(err){
                 next(err);
