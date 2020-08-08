@@ -18,7 +18,7 @@ function getForm(){
         var inputs = document.getElementsByClassName("input_field");
 
         var values = [input_field[0], input_field[1], input_field[2], input_field[3], input_field[4]]
-    }
+
     console.log(values)
 
     app.post('/insert', function(req, res, next){
@@ -37,6 +37,7 @@ function getForm(){
         context.results = JSON.stringify(rows);
         res.send('DBchart',context);
         });
+        }
     })
 
 }
