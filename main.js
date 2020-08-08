@@ -106,6 +106,15 @@ app.get('/update', function(req, res, next){
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
+
+    lbs = true
+    if(req.query.lbs == "kgs"){
+        lbs = false;
+    }
+    if (req.query.date !=""){
+        date_str = req.query.date
+        date = date_str.slice(6,11)+"-"+date_str.slice(0,2)+"-"+date_str.slice(3,5)}
+
     mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
         if(err){
             next(err);
@@ -114,7 +123,7 @@ app.get('/update', function(req, res, next){
         if(result.length==1){
             var curVals = result[0];
             console.log(req.query)
-            mysql.pool.query('UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=?', [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.query.lbs || curVals.lbs, [key[0]]], function(err, result){
+            mysql.pool.query('UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=?', [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, date || req.query.date || curVals.date, lbs || curVals.lbs, [key[0]]], function(err, result){
                 if(err){
                     next(err);
                     return;
