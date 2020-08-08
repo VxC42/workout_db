@@ -103,7 +103,8 @@ app.get('/edit', urlencodedParser, function(req, res, next){
 
 app.get('/update', function(req, res, next){
     var context={};
-    mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
+    console.log(req.query)
+    /*mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
         if(err){
             next(err);
             return;
@@ -125,7 +126,7 @@ app.get('/update', function(req, res, next){
                 });
             })
         }
-    })
+    })*/
 })
 
 
