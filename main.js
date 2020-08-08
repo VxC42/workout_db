@@ -46,7 +46,7 @@ app.get('/',function(req, res, next){
 app.get('/insert', urlencodedParser, function(req, res, next){
     console.log(req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
     var context = {};
-    mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, DATE_FORMAT(req.query.date, '%m/%d/%Y'), req.query.lbs], function(err, results){
+    mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, mysql.pool.quest('DATE_FORMAT(req.query.date, "%m/%d/%Y")', req.query.lbs], function(err, results){
         if(err){
             next(err);
             return;
