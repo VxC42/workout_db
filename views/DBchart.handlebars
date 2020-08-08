@@ -9,7 +9,7 @@
         <td>{{this.date}}</td>
         <td>{{#if this.lbs}} lbs {{else}} kgs {{/if}}
         </td>
-        <td><form action="/edit" method="get"><input type="submit" class="submit_btn" name={{this.id}} value ="Delete"> <input type="submit" class="submit_btn" name="Update" value="Update"></form></td>
+        <td class="lastcolumn"><form action="/edit" method="get"><input type="submit" class="submit_btn" name={{this.id}} value ="Delete"> <input type="submit" class="submit_btn" name="Update" value="Update"></form></td>
     </tr>
     {{/each}}
 </table>

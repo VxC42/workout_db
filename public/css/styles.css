@@ -48,3 +48,6 @@ td{
     width:auto;
     border: 1px solid lightgrey;
 }
+.lastcolumn{
+    width:100px;
+}
