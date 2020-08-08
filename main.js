@@ -47,7 +47,8 @@ app.get('/insert', urlencodedParser, function(req, res, next){
     if(req.query.lbs == "kgs"){
         lbs = false;
     }
-    date = req.query.date[6:]+"-"+req.query.date[0:2]+"-"+req.query.date[2:4]
+    date_str = req.query.date
+    date = date_str.slice(6,11)+"-"+date_str.slice(0,2)+"-"+date_str.slice(3,5)
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, date, lbs], function(err, results){
         if(err){
             next(err);
