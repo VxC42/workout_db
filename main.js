@@ -40,14 +40,14 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/insert', function(req,res,next){
-    console.log(req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
+    console.log(req.query, req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
 
 })
 
 /*app.post('/insert', function(req, res, next){
     var context = {};
     if(req.query['Add Workout']){
-        mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date. req.query.lbs], function(err, result){
+        mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
             if(err){
                 next(err);
                 return;
