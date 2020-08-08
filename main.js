@@ -28,7 +28,7 @@ function getForm(){
                     next(err);
                     return;
                 };
-            };
+            });
             mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
                 if(err){
                    next(err);
