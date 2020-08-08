@@ -34,7 +34,7 @@ app.get('/',function(req, res, next){
             next(err);
             return;
         }
-    context.results = rows;
+    context.results = JSON.stringify(rows);
     res.render('DBchart', context);
     });
 });
