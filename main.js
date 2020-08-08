@@ -40,7 +40,7 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/insert', function(req,res,next){
-    console.log(req.query, req.params.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs)
+    console.log('hello')
 })
 
 /*app.post('/insert', function(req, res, next){
