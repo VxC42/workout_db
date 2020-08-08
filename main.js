@@ -62,7 +62,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 })
 
 app.get('/edit', urlencodedParser, function(req, res, next){
-    console.log(req.query)
+    console.log(req.query.key)
     /*mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.name], function(err, result){
         if(err){
             next(err);
