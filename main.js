@@ -63,13 +63,13 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 
 app.get('/delete', urlencodedParser, function(req, res, next){
     console.log(req.query)
-    mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.name], function(err, result){
+    /*mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.name], function(err, result){
         if(err){
             next(err);
             return;
         };
     });
-    req.send()
+    req.send()*/
 });
 
 
