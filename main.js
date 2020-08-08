@@ -40,7 +40,9 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/insert', function(req,res,next){
-    console.log(req.query.name, req.query.reps, req.query.weight, req.query.date. req.query.lbs)
+    if(req.body['Add Workout']){
+        console.log(req.query.name, req.query.reps, req.query.weight, req.query.date. req.query.lbs)
+    }
 })
 
 /*app.post('/insert', function(req, res, next){
