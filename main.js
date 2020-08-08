@@ -45,10 +45,13 @@ app.get('/',function(req, res, next){
 
 app.get('/insert', urlencodedParser, function(req, res, next){
     var context={};
-    console.log(req.query.lbs)
+    lbs = true
+    if(req.query.lbs == "kgs"){
+        lbs = false;
+    }
 
 
-    mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, results){
+    mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, lbs], function(err, results){
         if(err){
             next(err);
             return;
