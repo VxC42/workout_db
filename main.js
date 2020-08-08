@@ -39,6 +39,7 @@ app.get('/',function(req, res, next){
     });
 
     if(req.body['Add Workout']){
+        console.log('hi')
         mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.body.name, req.body.reps, req.body.weight, req.body.date. req.body.lbs], function(err, result){
             if(err){
                 next(err);
@@ -46,7 +47,7 @@ app.get('/',function(req, res, next){
             };
         });
     };
-    if(req.body['delete']){
+    if(req.body['Delete']){
         mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.body.id], function(err, result){
             if(err){
                 next(err);
@@ -55,6 +56,7 @@ app.get('/',function(req, res, next){
         });
     }
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+        console.log('bye')
         if(err){
            next(err);
            return;
@@ -65,11 +67,11 @@ app.get('/',function(req, res, next){
 });
 
 
-
+/*
 app.use(function(req,res){
   res.status(404);
   res.render('404');
-});
+});*/
 
 app.use(function(err, req, res, next){
   console.error(err.stack);
