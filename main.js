@@ -83,7 +83,13 @@ app.get('/edit', urlencodedParser, function(req, res, next){
         });
     }
     else if (req.query[key]=="Update"){
-        res.render('update')
+        mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
+            if(err){
+                next(err);
+                return;
+            }
+        context.results = rows;
+        res.render('update', context)
     }
     mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
         if(err){
@@ -109,7 +115,7 @@ app.get('/update', function(req, res, next){
                     next(err);
                     return;
                 }
-                context.results="Updated "+result.changedRows+" rows";
+                context.results="Updated" "+result.changedRows+" rows";
                 res.render('DBchart', context)
             })
         }
