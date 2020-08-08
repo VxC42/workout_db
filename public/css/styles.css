@@ -22,17 +22,17 @@ input{
     width:110px;
     margin-left: 5px;
 }
-#submit_btn{
+.submit_btn{
     background: #ffffff;
     border: 1px solid black;
     margin-left: 3px;
 }
-#submit_btn:hover{
+.submit_btn:hover{
     background:#000000;
     color:#ffffff;
     border: 1px solid white;
 }
-#submit_btn:active{
+.submit_btn:active{
     background:#fcf800;
     color:#000000;
     border: 1px solid black;
