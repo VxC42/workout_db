@@ -99,7 +99,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     res.render('DBchart',context);
     });
 });
-
+/*
 app.get('/update', function(req, res, next){
     var context={};
     mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
@@ -120,7 +120,7 @@ app.get('/update', function(req, res, next){
         }
     })
 })
-
+*/
 
 app.use(function(req,res){
   res.status(404);
