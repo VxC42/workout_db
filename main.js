@@ -100,7 +100,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     }
 
 });
-/*
+
 app.get('/update', function(req, res, next){
     var context={};
     mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
@@ -115,13 +115,19 @@ app.get('/update', function(req, res, next){
                     next(err);
                     return;
                 }
-                context.results="Updated "+result.changedRows+" rows";
-                res.render('DBchart', context)
+                mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
+                    if(err){
+                       next(err);
+                       return;
+                    }
+                context.results = rows;
+                res.render('DBchart',context);
+                });
             })
         }
     })
 })
-*/
+
 
 app.use(function(req,res){
   res.status(404);
