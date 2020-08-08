@@ -78,7 +78,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
             };
         });
     }
-    elseif (req.query[key]=="Update"){
+    else if (req.query[key]=="Update"){
         console.log('need')
     }
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
