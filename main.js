@@ -40,7 +40,7 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/insert', function(req,res,next){
-    console.log(req.params)
+    console.log(req.params.name)
 })
 
 /*app.post('/insert', function(req, res, next){
