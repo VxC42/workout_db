@@ -1,35 +1,21 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <link rel='stylesheet' type='text/css' href='css/styles.css'/>
-        <title>Assignment 6</title>
-    </head>
-    <body>
-        <div id="container">
-            <h1> Update </h1>
-            <div id="form_container">
-                <form action="/edit" method="get">
-                    <label for "name"> Name of Exercise:</label>
-                    <input type="text" name="name" class="input_field" >
-                    <label for "rep"> Number of Reps:</label>
-                    <input type="text" name="reps" class="input_field" >
-                    <label for "weight"> Amount of Weight:</label>
-                    <input type="text" name="weight" class="input_field" >
-                    <label for "date"> Date (MM-DD-YYYY):</label>
-                    <input type="text" name="date" class="input_field" >
-                    <label for "lbs"> Units used:</label>
-                    <select name="lbs" class="dropdown" >
-                        <option value=""></option>
-                        <option value="lbs">lbs</option>
-                        <option value="kgs">kgs</option>
-                        </select>
-                    <input type="submit" id="submit_btn" name="Save" value="Save">
-                </form>
+<div id="form_container">
+    <Update {{this.name}}
+    <form action="/edit" method="get">
+        <label for "name"> Name of Exercise:</label>
+        <input type="text" name="name" class="input_field" >
+        <label for "rep"> Number of Reps:</label>
+        <input type="text" name="reps" class="input_field" >
+        <label for "weight"> Amount of Weight:</label>
+        <input type="text" name="weight" class="input_field" >
+        <label for "date"> Date (MM-DD-YYYY):</label>
+        <input type="text" name="date" class="input_field" >
+        <label for "lbs"> Units used:</label>
+        <select name="lbs" class="dropdown" >
+            <option value=""></option>
+            <option value="lbs">lbs</option>
+            <option value="kgs">kgs</option>
+            </select>
+        <input type="submit" id="submit_btn" name="Save" value="Save">
+    </form>
 
-            </div>
-            {{{body}}}
-
-        </div>
-    </body>
-</html>
+</div>
