@@ -60,7 +60,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
     res.render('DBchart',context);
     });
 })
-/*
+
 app.get('/edit', urlencodedParser, function(req, res, next){
     var context={};
     var q = req.query
@@ -84,7 +84,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     res.render('DBchart',context);
     });
 });
-*/
+
 
 app.use(function(req,res){
   res.status(404);
