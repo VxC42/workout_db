@@ -82,7 +82,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     }
     else if (req.query[key]=="Update"){
         console.log(req.query)
-        mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
+        mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts WHERE id=?', [key[0]], function(err, result){
             if(err){
                 next(err);
                 return;

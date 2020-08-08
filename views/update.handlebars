@@ -19,11 +19,17 @@
         <label for "date"> Date (MM-DD-YYYY):</label>
         <input type="text" name="date" class="input_field" placeholder="{{this.date}}">
         <label for "lbs"> Units used:</label>
-        <select name="lbs" class="dropdown" placeholder="{{#if this.lbs}} lbs {{else}} kgs {{/if}}">
-            <option value=""></option>
-            <option value="lbs">lbs</option>
+        {{#if this.lbs}}
+        <select name="lbs" class="dropdown">
+            <option value="lbs" selected>lbs</option>
             <option value="kgs">kgs</option>
-            </select>
+        </select>
+        {{else}}
+        <select name="lbs" class="dropdown">
+            <option value="lbs">lbs</option>
+            <option value="kgs" selected>kgs</option>
+        </select>
+        {{/if}}
         <input type="submit" class="submit_btn" name="Save" value="Save">
     </form>
     {{/each}}
