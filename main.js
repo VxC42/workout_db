@@ -49,14 +49,14 @@ app.post('/', function(req, res, next){
             };
         });
     };
-    if(req.query['Delete']){
+    /*if(req.query['Delete']){
         mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.id], function(err, result){
             if(err){
                 next(err);
                 return;
             }
         });
-    }
+    }*/
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
@@ -67,11 +67,11 @@ app.post('/', function(req, res, next){
     });
 })
 
-/*
+
 app.use(function(req,res){
   res.status(404);
   res.render('404');
-});*/
+});
 
 app.use(function(err, req, res, next){
   console.error(err.stack);
