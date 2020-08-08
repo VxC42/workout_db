@@ -70,13 +70,12 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 app.get('/edit', urlencodedParser, function(req, res, next){
     var context={};
 
-    console.log(req.query.id)
 
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
     if (req.query[key]=="Delete"){
-        mysql.pool.query('DELETE FROM workouts WHERE id = ?', req.query.id, function(err, result){
+        mysql.pool.query('DELETE FROM workouts WHERE id = ?', [key[0]], function(err, result){
             if(err){
                 next(err);
                 return;
