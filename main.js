@@ -83,16 +83,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
         });
     }
     else if (req.query[key]=="Update"){
-        mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
-            if(err){
-                next(err);
-                return;
-            }
-            if(result.length==1){
-                var curVals = result[0];
-                
-            }
-        })
+        res.render('Update')
     }
     mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
         if(err){
@@ -103,6 +94,27 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     res.render('DBchart',context);
     });
 });
+
+app.get('/update', function(req, res, next){
+    var context={};
+    mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
+        if(err){
+            next(err);
+            return;
+        }
+        if(result.length==1){
+            var curVals = result[0];
+            mysql.pool.query('UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=?', [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.query.lbs || curVals.lbs], function(err, result){
+                if(err){
+                    next(err);
+                    return;
+                }
+                context.results="Updated "+result.changedRows+" rows";
+                res.render('DBchart', context)
+            })
+        }
+    })
+})
 
 
 app.use(function(req,res){
