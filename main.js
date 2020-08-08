@@ -69,8 +69,6 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 
 app.get('/edit', urlencodedParser, function(req, res, next){
     var context={};
-
-
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
@@ -83,7 +81,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
         });
     }
     else if (req.query[key]=="Update"){
-        console.log(req.query[key])
+        console.log(req.query)
         mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
             if(err){
                 next(err);
