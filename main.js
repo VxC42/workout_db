@@ -39,7 +39,7 @@ app.get('/',function(req, res, next){
     });
 });
 
-app.post('/', function(req, res, next){
+/*app.post('/', function(req, res, next){
     console.log('hi')
     var context={};
     if(req.body['Add Workout']){
@@ -67,7 +67,7 @@ app.post('/', function(req, res, next){
     res.render('DBchart',context);
     });
 });
-
+*/
 app.use(function(req,res){
   res.status(404);
   res.render('404');
