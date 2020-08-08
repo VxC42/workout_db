@@ -48,6 +48,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
         lbs = false;
     }
 
+    mysql.pool.query('STR_TO_DATE('+req.query.date+',%m-%d-%Y)')
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, lbs], function(err, results){
         if(err){
             next(err);
