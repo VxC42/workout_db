@@ -1,7 +1,7 @@
 {
-  "name": "week5 - GET/POST checker",
+  "name": "workouts_db",
   "version": "1.0.0",
-  "description": "Application that receives both Get and Post requests",
+  "description": "Application that stores workouts in a db",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
