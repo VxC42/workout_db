@@ -9,8 +9,8 @@ app.use(express.static('public'));
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 3708);
-/*app.get('/reset-table', function(req,res,next){
+app.set('port', 3709);
+app.get('/reset-table', function(req,res,next){
     var context = {};
     mysql.pool.query("DROP TABLE IF EXISTS workouts", function(err){
         var createString = "CREATE TABLE workouts("+
@@ -25,10 +25,10 @@ app.set('port', 3708);
             res.render('DBchart',context);
         })
     });
-});*/
+});
 
 app.get('/',function(req, res, next){
-    /*var context = {};
+    var context = {};
     mysql.pool.query('SELECT * FROM workouts', function (err, rows, fields){
         if (err){
             next(err);
@@ -36,11 +36,10 @@ app.get('/',function(req, res, next){
         }
     context.results = JSON.stringify(rows);
     res.render('DBchart', context);
-});*/
-    res.render('DBchart')
+    });
 });
 
-/*app.post('/', function(req, res, next){
+app.post('/', function(req, res, next){
     console.log('hi')
     var context={};
     if(req.body['Add Workout']){
@@ -68,7 +67,7 @@ app.get('/',function(req, res, next){
     res.render('DBchart',context);
     });
 });
-*/
+
 app.use(function(req,res){
   res.status(404);
   res.render('404');
