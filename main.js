@@ -116,7 +116,7 @@ app.get('/update', function(req, res, next){
                     next(err);
                     return;
                 }
-                context.results="Updated" "+result.changedRows+" rows";
+                context.results="Updated "+result.changedRows+" rows";
                 res.render('DBchart', context)
             })
         }
