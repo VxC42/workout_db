@@ -38,7 +38,7 @@ function getForm(){
             res.send('DBchart',context);
             });
     })
-}
+})
 
 app.get('/reset-table', function(req,res,next){
     var context = {};
