@@ -6,6 +6,7 @@ var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
 app.use(express.static('public'));
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
@@ -39,7 +40,8 @@ app.get('/',function(req, res, next){
     });
 });
 
-app.get('/insert', function(req, res, next){
+app.get('/insert', urlencodedParser, function(req, res, next){
+    console.log(req.body)
     var context = {};
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
         if(err){
