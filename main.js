@@ -128,7 +128,7 @@ app.get('/update', function(req, res, next){
                 });
             })
         }
-    })*/
+    })
 })
 
 
