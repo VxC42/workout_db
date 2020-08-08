@@ -10,16 +10,16 @@
     <h2>Updating</h2>
     {{#each result}}
     <form action="/update" method="get">
-        <label for "name"> Exercise Name:{{this.name}}</label>
+        <label for "name"> Name of Exercise:</label>
         <input type="text" name="name" class="input_field" placeholder="{{this.name}}">
         <label for "rep"> Number of Reps:</label>
-        <input type="text" name="reps" class="input_field" >
+        <input type="text" name="reps" class="input_field" placeholder="{{this.reps}}">
         <label for "weight"> Amount of Weight:</label>
-        <input type="text" name="weight" class="input_field" >
+        <input type="text" name="weight" class="input_field" placeholder="{{this.weight}}">
         <label for "date"> Date (MM-DD-YYYY):</label>
-        <input type="text" name="date" class="input_field" >
+        <input type="text" name="date" class="input_field" placeholder="{{this.date}}">
         <label for "lbs"> Units used:</label>
-        <select name="lbs" class="dropdown" >
+        <select name="lbs" class="dropdown" placeholder="{{#if this.lbs}} lbs {{else}} kgs {{/if}}">
             <option value=""></option>
             <option value="lbs">lbs</option>
             <option value="kgs">kgs</option>
