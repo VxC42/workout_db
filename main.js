@@ -38,8 +38,7 @@ app.get('/',function(req, res, next){
             return;
         }
 
-    context.results = (rows);
-    console.log(context.results)
+    context.results = rows;
     res.render('DBchart', context);
     });
 });
@@ -58,7 +57,7 @@ app.get('/insert', urlencodedParser, function(req, res, next){
            next(err);
            return;
         }
-    context.results = JSON.stringify(rows);
+    context.results = rows;
     res.render('DBchart',context);
     });
 })
