@@ -40,6 +40,7 @@ app.get('/',function(req, res, next){
 });
 
 app.post('/insert', function(req,res,next){
+    var req = new XMLHttpRequest();
     console.log(req.params.name)
 })
 
