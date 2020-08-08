@@ -90,7 +90,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
             }
             context.results = rows;
             res.render('update', context)
-        }
+        })
     }
     mysql.pool.query('SELECT id, name, reps, weight, DATE_FORMAT(date, "%m-%d-%Y") date, lbs FROM workouts', function(err, rows, fields){
         if(err){
