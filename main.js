@@ -73,7 +73,14 @@ app.get('/edit', urlencodedParser, function(req, res, next){
             return;
         };
     });
-    req.send()
+    mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+        if(err){
+           next(err);
+           return;
+        }
+    context.results = rows;
+    res.render('DBchart',context);
+    });
 });
 
 
