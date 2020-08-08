@@ -47,14 +47,6 @@ app.post('/insert', function(req, res, next){
             return;
         };
     });
-    /*if(req.query['Delete']){
-        mysql.pool.query('DELETE FROM workouts WHERE id = ?', [req.query.id], function(err, result){
-            if(err){
-                next(err);
-                return;
-            }
-        });
-    }*/
     mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
         if(err){
            next(err);
