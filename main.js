@@ -69,6 +69,9 @@ app.get('/insert', urlencodedParser, function(req, res, next){
 
 app.get('/edit', urlencodedParser, function(req, res, next){
     var context={};
+
+    console.log(req.query.id)
+
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
