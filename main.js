@@ -40,7 +40,8 @@ app.get('/',function(req, res, next){
     });
 });
 
-app.post('/insert', urlencodedParser, function(req, res, next){
+app.get('/insert', urlencodedParser, function(res, next){
+    var req = new XMLHttpRequest();
     var context = {};
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
         if(err){
@@ -54,7 +55,7 @@ app.post('/insert', urlencodedParser, function(req, res, next){
            return;
         }
     context.results = JSON.stringify(rows);
-    res.render('DBchart',context);
+    req.send();
     });
 })
 
