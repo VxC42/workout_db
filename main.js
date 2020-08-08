@@ -103,8 +103,10 @@ app.get('/edit', urlencodedParser, function(req, res, next){
 
 app.get('/update', function(req, res, next){
     var context={};
-    console.log(req.query)
-    /*mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
+    var q = req.query
+    var key = [];
+    for (var k in q) key.push(k);
+    mysql.pool.query('SELECT * FROM workouts WHERE id=?', [key[0]], function(err, result){
         if(err){
             next(err);
             return;
