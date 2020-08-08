@@ -37,10 +37,7 @@ app.get('/',function(req, res, next){
     context.results = JSON.stringify(rows);
     res.render('DBchart', context);
     });
-});
 
-app.post('/', function(req, res, next){
-    var context={};
     if(req.body['Add Workout']){
         mysql.pool.query('INSERT INTO workouts(`name`,`reps`,`weight`,`date`,`lbs`) VALUES (?, ?, ?, ?, ?)', [req.body.name, req.body.reps, req.body.weight, req.body.date. req.body.lbs], function(err, result){
             if(err){
@@ -66,6 +63,8 @@ app.post('/', function(req, res, next){
     res.render('DBchart',context);
     });
 });
+
+
 
 app.use(function(req,res){
   res.status(404);
