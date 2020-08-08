@@ -39,6 +39,7 @@ function getForm(){
             });
         });
     });
+}
 
 app.get('/reset-table', function(req,res,next){
     var context = {};
