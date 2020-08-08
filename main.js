@@ -39,7 +39,7 @@ app.get('/',function(req, res, next){
         }
 
     context.results = JSON.stringify(rows);
-    console.log(context)
+    console.log(context.id)
     res.render('DBchart', context);
     });
 });
