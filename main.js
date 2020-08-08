@@ -88,7 +88,7 @@ app.get('/edit', urlencodedParser, function(req, res, next){
                 next(err);
                 return;
             }
-            context.results = rows;
+            context.results = result;
             res.render('update', context)
         })
     }
