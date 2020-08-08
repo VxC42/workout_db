@@ -8,7 +8,7 @@
         <td>{{this.weight}}</td>
         <td>{{this.date}}</td>
         <td>{{this.lbs}}</td>
-        <td><input type="submit" name={{this.id}} value ="Delete" action="/delete" method="get"> <input type="submit" name="Update" value="Update"></td>
+        <td><form action="/edit" method="get"><input type="submit" name={{this.id}} value ="Delete"> <input type="submit" name="Update" value="Update"></form></td>
     </tr>
     {{/each}}
 </table>
