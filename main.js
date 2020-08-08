@@ -30,7 +30,7 @@ app.get('/reset-table', function(req,res,next){
 
 app.get('/',function(req, res, next){
     var context = {};
-    mysql.pool.query('SELECT * FROM workouts', function (err, rows, fields){
+    mysql.pool.query('SELECT * FROM workouts  ', function (err, rows, fields){
         if (err){
             next(err);
             return;
@@ -47,6 +47,8 @@ app.get('/insert', urlencodedParser, function(req, res, next){
     if(req.query.lbs == "kgs"){
         lbs = false;
     }
+
+    mysql.pool.query('STR_TO_DATE('+req.query.date+,'%m/%d/%Y)')
 
     mysql.pool.query('INSERT INTO workouts(name,reps,weight,date,lbs) VALUES (?, ?, ?, ?, ?)', [req.query.name, req.query.reps, req.query.weight, req.query.date, lbs], function(err, results){
         if(err){
@@ -69,7 +71,6 @@ app.get('/edit', urlencodedParser, function(req, res, next){
     var q = req.query
     var key = [];
     for (var k in q) key.push(k);
-    console.log(req.query[key])
     if (req.query[key]=="Delete"){
         mysql.pool.query('DELETE FROM workouts WHERE id = ?', [key[0]], function(err, result){
             if(err){
